@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="js-focus-visible" lang="it">
+
+<head>
+  <title>Pagina Web Demo</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="body_box" onload="process()">
+  <header>
+    <div class="fixed-top">
+      <img src="logo.png" alt="Logo" class="immagini_intestazione">
+      <div class="titolo">IIS "Corinaldesi Padovano"<br>Meccanica Meccatronica</div>
+      <img src="ingranaggi.svg" alt="ingranaggi" class="immagini_intestazione">
+
+      <div class="contenitore_data_ora">
+        <div class="data_ora">DATA: <span id="date">mm/dd/yyyy</span></div>
+        <div class="data_ora">ORA: <span id="time">00:00:00</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="body_text_grande">Lettura sensori</div>
+    <table style="width: 60%;">
+      <colgroup>
+        <col style="background-color: rgb(230, 230, 230); width: 20%; color: rgb(0, 0, 0);" span="1">
+        <col style="background-color: rgb(200, 200, 200); width: 15%; color: rgb(0, 0, 0);" span="1">
+        <col style="background-color: rgb(180, 180, 180); width: 15%; color: rgb(0, 0, 0);" span="1">
+      </colgroup>
+      <col style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);" span="2">
+      <col style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);" span="2">
+      <col style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);" span="2">
+      <tbody>
+        <tr>
+          <th colspan="1">
+            <div class="heading">Pin</div>
+          </th>
+          <th colspan="1">
+            <div class="heading">Bits</div>
+          </th>
+          <th colspan="1">
+            <div class="heading">Volts</div>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="body_text_piccolo">Manopola gialla</div>
+          </td>
+          <td>
+            <div class="tabledata" id="a0"></div><br>
+          </td>
+          <td>
+            <div class="tabledata" id="v0"></div><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="body_text_piccolo">Analog pin 35</div>
+          </td>
+          <td>
+            <div class="tabledata" id="a1"></div><br>
+          </td>
+          <td>
+            <div class="tabledata" id="v1"></div><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="body_text_piccolo">Digital switch</div>
+          </td>
+          <td>
+            <div class="tabledata" id="switch"></div><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="body_text_grande">Controllo attuatori</div>
+    
+    <div class="body_text_piccolo" id="LED">LED spento</div>
+    
+    <button type="button" class="btn" id="btn0" onclick="ButtonPress0()">Accendi</button>
+    <br><br>
+    <div class="body_text_piccolo" id="Switch">Switch off</div>
+    <button type="button" class="btn" id="btn1" onclick="ButtonPress1()">Accendi</button>
+    <br><br>
+    <div class="body_text_piccolo">Controllo giri motore (RPM: <span id="fanrpm"></span>)</div>
+    <br>
+    <input class="fanrpmslider" min="0" max="255" value="0" oninput="UpdateSlider(this.value)" type="range" width="0%">
+    <br>
+    <br>
+  </main>
+
+  <footer div="" class="foot" id="temp">Pagina web ESP32 con aggiornamento dei dati</footer>
+  
+  <script src="/javascript.js"></script>
+</body>
+</html>
